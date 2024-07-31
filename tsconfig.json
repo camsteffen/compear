@@ -1,0 +1,11 @@
+{
+	"compilerOptions": {
+		"esModuleInterop": true,
+		"module": "preserve",
+		"moduleDetection": "force",
+		"noUnusedLocals": true,
+		"strict": true,
+		"target": "esnext",
+		"verbatimModuleSyntax": true
+	}
+}

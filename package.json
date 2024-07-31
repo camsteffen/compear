@@ -1,0 +1,48 @@
+{
+	"name": "compear",
+	"version": "1.0.0",
+	"description": "Utilities for comparing and sorting with comparators",
+	"keywords": ["compare", "comparator", "sort"],
+	"homepage": "https://github.com/camsteffen/compear",
+	"bugs": "https://github.com/camsteffen/compear/issues",
+	"license": "MIT",
+	"author": "Cameron Steffen <cam.steffen94@gmail.com>",
+	"files": ["dist", "src", "!src/**/*.test.*"],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/camsteffen/compear.git"
+	},
+	"type": "module",
+	"types": "./dist/index.d.ts",
+	"exports": {
+		"import": {
+			"default": "./dist/index.js",
+			"types": "./dist/index.d.ts"
+		},
+		"require": {
+			"default": "./dist/index.cjs",
+			"types": "./dist/index.d.cts"
+		}
+	},
+	"scripts": {
+		"build": "tsup",
+		"build-docs": "typedoc src/index.ts",
+		"prepublishOnly": "tsup",
+		"check-types": "tsc --noEmit",
+		"format": "biome format",
+		"lint": "biome lint",
+		"test": "vitest run"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "^1.8.3",
+		"@types/node": "^22.0.0",
+		"jsdoc": "^4.0.3",
+		"tsup": "^8.2.4",
+		"tsx": "^4.16.3",
+		"typedoc": "^0.26.5",
+		"typedoc-material-theme": "^1.1.0",
+		"typedoc-plugin-markdown": "^4.2.3",
+		"typescript": "^5.5.4",
+		"vitest": "^2.0.5"
+	}
+}
