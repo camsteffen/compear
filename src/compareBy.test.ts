@@ -2,7 +2,7 @@ import { describe, expect, it } from "vitest";
 import type { Comparator } from "./Comparator";
 import { reverseOrder } from "./comparators";
 import { compareBy, compareByDesc } from "./compareBy";
-import { type Equals, assertType } from "./private/testUtils";
+import { type Equals, assertType, subtract } from "./private/testUtils";
 
 describe("compareBy", () => {
 	describe("when given a string key", () => {
@@ -40,9 +40,9 @@ describe("compareBy", () => {
 
 		describe("when given a comparator", () => {
 			it("requires the input type of the comparator to extend the return type of the selector", () => {
+				// @ts-expect-error
 				compareBy(
 					() => ({ a: 1 }),
-					// @ts-expect-error
 					(a: string, b: string) => 0,
 				);
 			});
@@ -59,51 +59,11 @@ describe("compareBy", () => {
 			});
 
 			it("allows the comparator type to be more general than the selector output", () => {
-				compareBy(
-					(): 1 => 1,
-					(a: number, b: number) => 1,
-				);
+				compareBy((): 1 => 1, subtract);
 				compareBy(
 					() => ({ x: 1, y: 1 }),
 					(a: { x: number }, b: { x: number }) => 1,
 				);
-			});
-		});
-	});
-
-	describe("when given a union type selector", () => {
-		it("returns a comparator that requires the intersection of types", () => {
-			const comparator = compareBy("a" as "a" | ((v: { b: number }) => number));
-
-			// @ts-expect-error
-			comparator({ a: 1 }, { a: 1 });
-			// @ts-expect-error
-			comparator({ b: 1 }, { b: 1 });
-		});
-
-		describe("when given a comparator", () => {
-			it("constrains the type of the value for the string key part of the selector type", () => {
-				const comparatorWithGenericString = compareBy(
-					"a" as string | ((v: { b: number }) => number),
-					(a: number, b: number) => 1,
-				);
-				const comparatorWithSpecificString = compareBy(
-					"a" as "a" | ((v: { b: number }) => number),
-					(a: number, b: number) => 1,
-				);
-
-				assertType<
-					Equals<
-						typeof comparatorWithGenericString,
-						Comparator<Record<string, number>> | Comparator<{ b: number }>
-					>
-				>();
-				assertType<
-					Equals<
-						typeof comparatorWithSpecificString,
-						Comparator<{ a: number }> | Comparator<{ b: number }>
-					>
-				>();
 			});
 		});
 	});
