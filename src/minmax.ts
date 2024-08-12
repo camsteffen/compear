@@ -1,8 +1,18 @@
 import type { Comparator } from "./Comparator";
 import { naturalOrder } from "./comparators";
 
+/**
+ * Finds the smallest value.
+ *
+ * Accepts either a single argument with a list of values or multiple
+ * arguments as values.
+ *
+ * Values are compared using {@link naturalOrder}.
+ *
+ * @param values values to compare
+ * @returns the smallest value
+ */
 export function min<T>(values: T[]): T;
-export function min<T>(first: T, second: T, ...rest: T[]): T;
 
 /**
  * Finds the smallest value.
@@ -12,16 +22,17 @@ export function min<T>(first: T, second: T, ...rest: T[]): T;
  *
  * Values are compared using {@link naturalOrder}.
  *
- * @param args values to compare
+ * @param first the first value to compare
+ * @param second the first value to compare
+ * @param rest any other values to compare
  * @returns the smallest value
  */
+export function min<T>(first: T, second: T, ...rest: T[]): T;
+
 export function min<T>(...args: T[] | [T[]]): T {
 	const list = (args.length > 1 ? args : args[0]) as T[];
 	return minWith(list, naturalOrder);
 }
-
-export function max<T>(values: T[]): T;
-export function max<T>(first: T, second: T, ...rest: T[]): T;
 
 /**
  * Finds the largest value.
@@ -31,9 +42,26 @@ export function max<T>(first: T, second: T, ...rest: T[]): T;
  *
  * Values are compared using {@link naturalOrder}.
  *
- * @param args values to compare
+ * @param values values to compare
  * @returns the largest value
  */
+export function max<T>(values: T[]): T;
+
+/**
+ * Finds the largest value.
+ *
+ * Accepts either a single argument with a list of values or multiple
+ * arguments as values.
+ *
+ * Values are compared using {@link naturalOrder}.
+ *
+ * @param first the first value to compare
+ * @param second the first value to compare
+ * @param rest any other values to compare
+ * @returns the largest value
+ */
+export function max<T>(first: T, second: T, ...rest: T[]): T;
+
 export function max<T>(...args: T[] | [T[]]): T {
 	const list = (args.length > 1 ? args : args[0]) as T[];
 	return maxWith(list, naturalOrder);

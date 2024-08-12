@@ -38,12 +38,12 @@ import reverse from "./private/reverse";
  * );
  * ```
  *
- * @param selector specifies how values will be transformed. This can either be a key value or a function.
- * @param comparator compares the transformed values
+ * @param key objects will be compared by accessing the property with this key
+ * @param comparator compares the property values
  * @returns a new comparator
  */
 export function compareBy<K extends AnyKey, V = unknown>(
-	selector: K,
+	key: K,
 	comparator?: Comparator<V>,
 ): CompareByKey<K, V>;
 
@@ -83,7 +83,7 @@ export function compareBy<K extends AnyKey, V = unknown>(
  * );
  * ```
  *
- * @param selector specifies how values will be transformed. This can either be a key value or a function.
+ * @param selector a function that transforms a value into another value to be compared
  * @param comparator compares the transformed values
  * @returns a new comparator
  */
@@ -104,19 +104,19 @@ export function compareBy(
 /**
  * Same as {@link compareBy} but orders in descending order
  *
- * @param selector specifies how values will be transformed. This can either be a key value or a function.
- * @param comparator compares the transformed values
+ * @param key objects will be compared by accessing the property with this key
+ * @param comparator compares the property values
  * @returns a new comparator
  */
 export function compareByDesc<K extends AnyKey, V = unknown>(
-	selector: K,
+	key: K,
 	comparator?: Comparator<V>,
 ): CompareByKey<K, V>;
 
 /**
  * Same as {@link compareBy} but orders in descending order
  *
- * @param selector specifies how values will be transformed. This can either be a key value or a function.
+ * @param selector a function that transforms a value into another value to be compared
  * @param comparator compares the transformed values
  * @returns a new comparator
  */
