@@ -19,6 +19,12 @@ describe("naturalOrder", () => {
 	it("compares lists by elements", () => {
 		expect(naturalOrder([10], [2])).toBe(1);
 	});
+
+	it("works with Date objects", () => {
+		expect(naturalOrder(new Date(0), new Date(1))).toBe(-1);
+		expect(naturalOrder(new Date(1), new Date(0))).toBe(1);
+		expect(naturalOrder(new Date(0), new Date(0))).toBe(0);
+	});
 });
 
 describe("reverseOrder", () => {

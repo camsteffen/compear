@@ -56,7 +56,7 @@ Compear is written in TypeScript and provides strong type safety.
 ### `naturalOrder`
 
 `naturalOrder` is meant to be a sensible default comparator for many cases.
-It works well for comparing numbers, strings, or lists of these values.
+It works well for comparing numbers, strings, Dates, or lists of these values.
 For other types of values,
 you will probably need to create a more specific comparator.
 

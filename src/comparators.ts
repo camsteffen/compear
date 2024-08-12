@@ -7,8 +7,8 @@ import reverse from "./private/reverse";
 /**
  * The default comparator which orders values in ascending order.
  *
- * `naturalOrder` generally works well for comparing numbers, strings, or lists
- * of these values.
+ * `naturalOrder` generally works well for comparing numbers, strings, Dates,
+ * or lists of these values.
  *
  * If the values are both [iterables] (e.g. Array or Map), then they are
  * compared by their elements _recursively_ (see also {@link compareEachWith}).
