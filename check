@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+set -e
+
+npm run format
+npm run check-types
+npm run lint
+npm run test
+
