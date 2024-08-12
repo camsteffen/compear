@@ -4,6 +4,8 @@ _Utilities for comparing and sorting with comparators in JavaScript_
 
 **[Documentation]**
 
+[![NPM Version](https://img.shields.io/npm/v/compear)](https://www.npmjs.com/package/compear)
+
 ## Installation
 
 ```shell
