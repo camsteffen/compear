@@ -7,7 +7,7 @@ import type { MergeComparatorInputs } from "./private/types";
  * Creates a comparator that compares iterables (e.g. arrays) in lexicographic
  * order.
  *
- * You must provide a comparator (such as `naturalOrder`) for comparing
+ * You must provide a comparator (such as {@link naturalOrder}) for comparing
  * corresponding pairs of elements. You can provide multiple comparator
  * arguments, which are combined similarly to {@link compareWith}.
  *

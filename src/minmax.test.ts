@@ -11,7 +11,7 @@ describe("max", () => {
 		expect(max(2, 3, 1)).toBe(3);
 	});
 
-	it("does not type-check with zero arguments", () => {
+	it("throws TypeError with zero arguments", () => {
 		// @ts-expect-error
 		expect(() => max()).toThrow(TypeError);
 	});
@@ -26,7 +26,7 @@ describe("min", () => {
 		expect(min(2, 1, 3)).toBe(1);
 	});
 
-	it("does not type-check with zero arguments", () => {
+	it("throws TypeError with zero arguments", () => {
 		// @ts-expect-error
 		expect(() => min()).toThrow(TypeError);
 	});

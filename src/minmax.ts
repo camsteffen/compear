@@ -11,6 +11,7 @@ import { naturalOrder } from "./comparators";
  *
  * @param values values to compare
  * @returns the smallest value
+ * @throws {TypeError} thrown if `values` is empty
  */
 export function min<T>(values: T[]): T;
 
@@ -44,6 +45,7 @@ export function min<T>(...args: T[] | [T[]]): T {
  *
  * @param values values to compare
  * @returns the largest value
+ * @throws {TypeError} thrown if `values` is empty
  */
 export function max<T>(values: T[]): T;
 
@@ -73,6 +75,7 @@ export function max<T>(...args: T[] | [T[]]): T {
  * @param values the list of values to compare
  * @param comparator compares the values
  * @returns the smallest value
+ * @throws {TypeError} thrown if `values` is empty
  */
 export function minWith<T>(values: T[], comparator: Comparator<T>): T {
 	return values.reduce(minReducer(comparator));
@@ -84,6 +87,7 @@ export function minWith<T>(values: T[], comparator: Comparator<T>): T {
  * @param values the list of values to compare
  * @param comparator compares the values
  * @returns the largest value
+ * @throws {TypeError} thrown if `values` is empty
  */
 export function maxWith<T>(values: T[], comparator: Comparator<T>): T {
 	return values.reduce(maxReducer(comparator));
